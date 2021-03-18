@@ -3,8 +3,6 @@ package konkuk.jamjoa;
 import org.jsoup.Jsoup;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,11 +14,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Main {
+public class makeCollection {
 
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException {
-        // write your code here
 
+    public makeCollection(String dir) throws ParserConfigurationException, IOException, TransformerException {
         //최종 결과 파일이 될 Document타입의 document 만들어줌
         DocumentBuilderFactory docFactory=DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder=docFactory.newDocumentBuilder();
@@ -34,7 +31,7 @@ public class Main {
         int index=0;
 
         //html파일들 있는 폴더(폴더명 2주차 실습 html)에서 파일들 모두 가져오기
-        File folder=new File("./2주차 실습 html");
+        File folder=new File(dir);
         File[] fileArray=folder.listFiles();
 
         //파일 개수만큼 반복
@@ -75,6 +72,5 @@ public class Main {
         DOMSource source=new DOMSource(document);
         StreamResult result=new StreamResult(new FileOutputStream(new File("collection.xml")));
         transformer.transform(source,result);
-
     }
 }
