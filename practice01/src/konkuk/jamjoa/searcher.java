@@ -22,7 +22,7 @@ public class searcher {
         this.dir=dir;
     }
 
-    public Double[] calcSimilarity(String query) throws ParserConfigurationException, IOException, SAXException, ClassNotFoundException {
+    public Double[] InnerProduct(String query) throws ParserConfigurationException, IOException, SAXException, ClassNotFoundException {
 
         KeywordExtractor ke = new KeywordExtractor();
         KeywordList kl = ke.extractKeyword(query, true);
