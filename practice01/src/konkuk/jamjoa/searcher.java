@@ -22,7 +22,7 @@ public class searcher {
         this.dir=dir;
     }
 
-    public void calcSimilarity(){
-
+    public Double[] calcSimilarity2(String query) {
+        return null;
     }
 }
